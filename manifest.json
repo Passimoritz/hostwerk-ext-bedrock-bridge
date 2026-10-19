@@ -1,0 +1,41 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Passimoritz/hostwerk-public/main/sdk/manifest.schema.json",
+  "id": "bedrock-bridge",
+  "name": {
+    "de": "Bedrock-Brücke",
+    "en": "Bedrock bridge"
+  },
+  "description": {
+    "de": "Freunde auf Handy, Konsole und der Windows-Edition spielen auf deinen Java-Servern mit: Geyser und Floodgate per Klick, eigener UDP-Port, Freigabe im Router und automatische Updates, sobald niemand online ist.",
+    "en": "Friends on phones, consoles and the Windows edition play on your Java servers: Geyser and Floodgate with one click, own UDP port, router forwarding and automatic updates as soon as nobody is online."
+  },
+  "version": "1.0.0",
+  "author": "Hostwerk",
+  "homepage": "https://github.com/Passimoritz/hostwerk-ext-bedrock-bridge",
+  "license": "MIT",
+  "icon": "icon.svg",
+  "banner": "banner.svg",
+  "color": "#0891b2",
+  "category": "games",
+  "hostwerk": ">=2.9.0",
+  "permissions": [
+    "native"
+  ],
+  "page": {
+    "title": {
+      "de": "Bedrock-Brücke",
+      "en": "Bedrock bridge"
+    },
+    "description": {
+      "de": "Handy- und Konsolen-Spieler auf Java-Servern.",
+      "en": "Phone and console players on Java servers."
+    },
+    "icon": "gamepad"
+  },
+  "backend": "server/index.js",
+  "ui": "ui/index.js",
+  "screenshots": [
+    "docs/screenshot.png",
+    "docs/screenshot.de.png"
+  ]
+}
