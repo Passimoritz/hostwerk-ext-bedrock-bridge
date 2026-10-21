@@ -108,6 +108,11 @@
   "Geyser has not created its settings yet – start the server once.": "Geyser hat seine Einstellungen noch nicht angelegt – starte den Server einmal.",
   "Switch on Bedrock players first.": "Schalte zuerst die Bedrock-Spieler ein.",
   "Save": "Speichern",
+  "Geyser belongs on the proxy in a network – once for every server. The new extension does that, adds Bedrock Dedicated Servers, version bridges and networks, and takes over your settings, ports and Floodgate keys without any loss.": "In einem Netzwerk gehört Geyser auf den Proxy – einmal für alle Server. Die neue Erweiterung macht das, bringt Bedrock Dedicated Server, Versions-Brücken und Netzwerke mit und übernimmt deine Einstellungen, Ports und Floodgate-Schlüssel ohne Verlust.",
+  "Open Minecraft server network": "Minecraft-Servernetzwerk öffnen",
+  "Move now": "Jetzt umziehen",
+  "Replaced by “Minecraft server network”": "Abgelöst durch „Minecraft-Servernetzwerk“",
+  "Minecraft server network installed – your Bedrock settings are there": "Minecraft-Servernetzwerk installiert – deine Bedrock-Einstellungen sind da",
   "$patterns": [
     [
       "Geyser ({})",

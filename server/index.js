@@ -9,15 +9,32 @@
  *   GET    /api/mc/servers/:id/bedrock/motd          Bedrock server list entry   PUT … change it
  *   PUT    /api/mc/servers/:id/bedrock/optional-pack { on } GeyserOptionalPack on/off
  *   POST   /api/mc/servers/:id/bedrock/backends      Velocity: Floodgate + key on all backends again
- *   GET    /api/bedrock                              all servers at a glance (extension page)
+ *   GET    /api/bedrock                              { replacedBy, servers } – all servers at a glance (extension page)
  * Service "bedrock" for Hostwerk and other extensions: isBedrock(serverId, playerName), status(serverId).
+ *
+ * 1.2: replaced by the extension "Minecraft server network" (mc-network) – same data, Geyser once on the proxy, Bedrock
+ * Dedicated Server, version bridges, networks. As soon as mc-network is installed this extension steps aside completely
+ * (no timers, no routes except GET /bedrock with the hint, minecraft.geyser belongs to mc-network). Until then it keeps
+ * working as before, so nothing breaks before the move.
  */
 const { Geyser } = require('./geyser');
 
 let geyser = null;
 
+/** Is the successor there? (installed, or already active as minecraft.geyser) */
+function replaced(host) {
+  try { if (host.ctx.extMarket && host.ctx.extMarket.list().some((e) => e.id === 'mc-network' && !e.error)) return true; } catch { /* older Hostwerk */ }
+  const g = host.ctx.minecraft && host.ctx.minecraft.geyser;
+  return !!(g && g.constructor && g.constructor.name === 'Bedrock');
+}
+
 function activate(host) {
   const mc = host.ctx.minecraft;
+  if (replaced(host)) {
+    // Step aside: the page only says where everything is now
+    host.router.get('/bedrock', (req, res) => res.json({ replacedBy: 'mc-network', servers: [] }));
+    return;
+  }
   const dl = host.core('download');
   geyser = new Geyser(host, mc, { downloadFile: dl.downloadFile, fetchJson: dl.fetchJson, jobProgress: dl.jobProgress, runJob: host.core('jobs').runJob });
   mc.geyser = geyser;
@@ -28,7 +45,7 @@ function activate(host) {
   });
   const r = host.router;
   const changed = () => host.broadcast({ type: 'mc' }); // other open views (server page, connect box) reload
-  r.get('/bedrock', (req, res) => res.json(geyser.overview()));
+  r.get('/bedrock', (req, res) => res.json({ replacedBy: null, servers: geyser.overview() }));
   r.get('/mc/servers/:id/bedrock', (req, res) => res.json(geyser.status(req.params.id)));
   r.post('/mc/servers/:id/bedrock', (req, res) => res.json({ job: geyser.enable(req.params.id, req.body || {}).id }));
   r.delete('/mc/servers/:id/bedrock', async (req, res) => { const out = await geyser.disable(req.params.id); changed(); res.json(out); });

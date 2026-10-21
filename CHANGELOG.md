@@ -1,3 +1,7 @@
+## 1.2.0
+
+- Replaced by the extension **Minecraft server network** (mc-network): Geyser belongs on the proxy in a network – once for every server –, plus Bedrock Dedicated Servers, version bridges and proxy networks. The page shows the move (“Move now”); the new extension takes over settings, ports and Floodgate keys without loss and moves Geyser from servers behind a proxy onto the proxy. As soon as it is installed, this extension steps aside (no own updates any more). / Abgelöst durch die Erweiterung **Minecraft-Servernetzwerk** (mc-network): In einem Netzwerk gehört Geyser auf den Proxy – einmal für alle Server –, dazu Bedrock Dedicated Server, Versions-Brücken und Proxy-Netzwerke. Die Seite bietet den Umzug an („Jetzt umziehen“); die neue Erweiterung übernimmt Einstellungen, Ports und Floodgate-Schlüssel ohne Verlust und zieht Geyser von Servern hinter einem Proxy auf den Proxy. Sobald sie installiert ist, tritt diese Erweiterung zur Seite (keine eigenen Updates mehr).
+
 ## 1.1.1
 
 - The free Bedrock port skips UDP forwardings of the router through its public list (`router.forwards`, Router & port forwarding 1.2) instead of reading its settings; older router versions as before. / Freier Bedrock-Port beachtet Router-Freigaben über deren öffentliche Liste (`router.forwards`), ältere Router-Erweiterung wie bisher.

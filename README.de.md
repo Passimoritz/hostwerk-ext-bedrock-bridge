@@ -2,6 +2,8 @@
 
 # Bedrock-Brücke
 
+> **Abgelöst durch [Minecraft-Servernetzwerk](https://github.com/Passimoritz/hostwerk-ext-mc-network).** In einem Netzwerk gehört Geyser auf den Proxy – einmal für alle Server. Die neue Erweiterung macht das, bringt Bedrock Dedicated Server, Versions-Brücken und Netzwerke mit und übernimmt alles aus dieser Erweiterung ohne Verlust. Version 1.2.0 bietet den Umzug an und tritt zur Seite, sobald der Nachfolger installiert ist.
+
 Freunde am Handy, an der Konsole und mit der Windows-Edition spielen auf deinen Java-Servern: Geyser und Floodgate mit einem Klick.
 
 [English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (SDK 2.7, native Erweiterung)

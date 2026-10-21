@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Gamepad2, Trash2, Smartphone, RefreshCw, Copy, ArrowRight, Box, RotateCw, CloudOff, Type, Network, BookOpen } from 'lucide-react';
 import { get, post, put, del, useApi, useStore, waitJob } from '@hostwerk/api';
+import { ArrowRightLeft } from 'lucide-react';
 import { Btn, Empty, Loading, InfoTip, Seg, Switch, SettingRow, Callout, toast, confirmDialog } from '@hostwerk/ui';
 import { t } from '@hostwerk/i18n';
 import './style.css';
@@ -57,7 +58,8 @@ export function BedrockShare({ s }) {
   const [busy, setBusy] = useState(false);
   const jobs = useStore((x) => x.jobs);
   const [job, setJob] = useState(null);
-  if (!b.data) return b.error ? <div className="tiny muted row-tight">{t('Bedrock players: {error}', { error: b.error })}<button type="button" className="btn ghost xs" onClick={() => b.reload()}>Try again</button></div> : null;
+  // Replaced by mc-network (1.2): the route is gone – the successor shows its own row in this box
+  if (!b.data) return null;
   const d = b.data;
   if (!d.supported) return <div className="tiny muted">{t('Bedrock players (phone, console): {why}', { why: d.why })}</div>;
   if (d.enabled) {
@@ -211,8 +213,26 @@ function ServerCard({ s, reload }) {
   );
 }
 
+/** 1.2: replaced by “Minecraft server network” – install it (Hostwerk 3.2 knows the move) or open the extensions page. */
+function Replaced({ done }) {
+  const [busy, setBusy] = useState(false);
+  const install = async () => {
+    setBusy(true);
+    try { await post('/extmarket/moved/mc-network/install'); toast.success('Minecraft server network installed – your Bedrock settings are there'); location.hash = '#/ext/mc-network'; } catch { location.hash = '#/ext'; }
+    setBusy(false);
+  };
+  return (
+    <Callout kind="warn" dismissible={false} title="Replaced by “Minecraft server network”">
+      <span>Geyser belongs on the proxy in a network – once for every server. The new extension does that, adds Bedrock Dedicated Servers, version bridges and networks, and takes over your settings, ports and Floodgate keys without any loss.</span>
+      {done ? <a className="btn sm" href="#/ext/mc-network">Open Minecraft server network</a> : <Btn className="sm primary" icon={ArrowRightLeft} busy={busy} onClick={install}>Move now</Btn>}
+    </Callout>
+  );
+}
+
 function BedrockPage() {
-  const d = useApi('/bedrock', [], { live: false, poll: true });
+  const r = useApi('/bedrock', [], { live: false, poll: true });
+  const d = { ...r, data: r.data ? (Array.isArray(r.data) ? r.data : r.data.servers) : null };
+  if (r.data && r.data.replacedBy) return <div className="page fade-in"><div className="page-head"><div><h1><Smartphone /> Bedrock bridge</h1></div></div><Replaced done /></div>;
   if (!d.data && d.error) return <div className="page"><Empty icon={CloudOff} title="Could not load the Bedrock bridge" text={d.error} action={<Btn icon={RotateCw} onClick={() => d.reload()}>Try again</Btn>} /></div>;
   return (
     <div className="page fade-in">
@@ -225,6 +245,7 @@ function BedrockPage() {
           <InfoTip title="How it works">Geyser translates between Bedrock and Java, Floodgate lets Bedrock players in without a Java account. Hostwerk picks a free UDP port (19132, 19133 …), sets everything up and keeps both up to date: new builds are downloaded in the background and put in place at the next restart – or right away when nobody is online.</InfoTip>
         </div>
       </div>
+      <Replaced />
       {d.data && d.error && <Callout kind="warn" dismissible={false}>{t('Could not refresh: {error}', { error: d.error })}</Callout>}
       {!d.data ? <Loading /> : d.data.length === 0 ? <Empty icon={Box} title="No Minecraft servers yet" text="Create a Minecraft server first – then allow Bedrock players here." action={<a className="btn primary" href="#/mc">Minecraft</a>} /> : (
         <div className="grid grid-2 bedrock-grid">

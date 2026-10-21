@@ -2,6 +2,8 @@
 
 # Bedrock bridge
 
+> **Replaced by [Minecraft server network](https://github.com/Passimoritz/hostwerk-ext-mc-network).** Geyser belongs on the proxy in a network – once for every server. The new extension does that, adds Bedrock Dedicated Servers, version bridges and networks, and takes over everything from this extension without loss. Version 1.2.0 shows the move and steps aside as soon as the successor is installed.
+
 Friends on phones, consoles and the Windows edition play on your Java servers: Geyser and Floodgate with one click.
 
 [Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (SDK 2.7, native extension)

@@ -6,10 +6,10 @@
     "en": "Bedrock bridge"
   },
   "description": {
-    "de": "Freunde auf Handy, Konsole und der Windows-Edition spielen auf deinen Java-Servern mit: Geyser und Floodgate per Klick, eigener UDP-Port, Freigabe im Router und automatische Updates, sobald niemand online ist.",
-    "en": "Friends on phones, consoles and the Windows edition play on your Java servers: Geyser and Floodgate with one click, own UDP port, router forwarding and automatic updates as soon as nobody is online."
+    "de": "Abgelöst durch „Minecraft-Servernetzwerk“: Dort läuft Geyser richtig – einmal am Proxy statt auf jedem Server –, dazu Bedrock Dedicated Server, Versions-Brücken und Netzwerke. Diese Fassung zieht deine Einstellungen, Ports und Floodgate-Schlüssel ohne Verlust um.",
+    "en": "Replaced by “Minecraft server network”: Geyser runs the right way there – once on the proxy instead of on every server –, plus Bedrock Dedicated Servers, version bridges and networks. This version moves your settings, ports and Floodgate keys over without loss."
   },
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-bedrock-bridge",
   "license": "MIT",
@@ -49,17 +49,10 @@
   },
   "synergies": [
     {
-      "with": "router",
+      "with": "mc-network",
       "title": {
-        "de": "UDP-Port für Bedrock-Spieler von selbst im Router freigeben",
-        "en": "Forward the UDP port for Bedrock players in the router by itself"
-      }
-    },
-    {
-      "with": "motd-studio",
-      "title": {
-        "de": "Java-MOTD gestalten – Bedrock übernimmt sie auf Wunsch",
-        "en": "Design the Java MOTD – Bedrock can use it as well"
+        "de": "Nachfolger: Minecraft-Servernetzwerk",
+        "en": "Successor: Minecraft server network"
       }
     }
   ]

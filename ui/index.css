@@ -1,2 +1,2 @@
-/* bedrock-bridge 1.1.0 – built with Hostwerk build-native.js */
+/* bedrock-bridge 1.2.0 – built with Hostwerk build-native.js */
 .bedrock-share{gap:var(--sp-2)}.bedrock-row{display:flex;gap:var(--sp-2);align-items:center}.bedrock-min{min-width:0}.bedrock-addresses{gap:var(--sp-1)}.bedrock-note{display:flex;flex-wrap:wrap;gap:var(--sp-2);align-items:center;padding:var(--sp-2) var(--sp-3);border-radius:var(--r-md);background:var(--warn-soft, var(--surface-2))}.bedrock-motd,.bedrock-backends{gap:var(--sp-2)}.bedrock-steps{margin:0;padding-left:var(--sp-5);display:grid;gap:var(--sp-1)}.bedrock-grid{align-items:start}.bedrock-grid .card-body.stack{gap:var(--sp-2)}
