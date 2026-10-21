@@ -1,3 +1,7 @@
+## 1.2.1
+
+- No own sidebar entry any more (`nav: false`) – the move to “Minecraft server network” stays reachable via Extensions → Open and the hint on the Minecraft page. / Kein eigener Eintrag mehr in der Seitenleiste (`nav: false`) – der Umzug zu „Minecraft-Servernetzwerk“ bleibt über Erweiterungen → Öffnen und den Hinweis auf der Minecraft-Seite erreichbar.
+
 ## 1.2.0
 
 - Replaced by the extension **Minecraft server network** (mc-network): Geyser belongs on the proxy in a network – once for every server –, plus Bedrock Dedicated Servers, version bridges and proxy networks. The page shows the move (“Move now”); the new extension takes over settings, ports and Floodgate keys without loss and moves Geyser from servers behind a proxy onto the proxy. As soon as it is installed, this extension steps aside (no own updates any more). / Abgelöst durch die Erweiterung **Minecraft-Servernetzwerk** (mc-network): In einem Netzwerk gehört Geyser auf den Proxy – einmal für alle Server –, dazu Bedrock Dedicated Server, Versions-Brücken und Proxy-Netzwerke. Die Seite bietet den Umzug an („Jetzt umziehen“); die neue Erweiterung übernimmt Einstellungen, Ports und Floodgate-Schlüssel ohne Verlust und zieht Geyser von Servern hinter einem Proxy auf den Proxy. Sobald sie installiert ist, tritt diese Erweiterung zur Seite (keine eigenen Updates mehr).
