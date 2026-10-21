@@ -47,6 +47,14 @@ test('free port skips ports of other servers, other public UDP ports and busy po
   assert.strictEqual(await g.freePort('a'), 19135, 'TCP on the same number does not matter');
 });
 
+test('free port also skips UDP forwardings remembered in the router – public list (router 1.2) or the older settings list', async () => {
+  const { g, host } = setup();
+  host.ctx.router = { forwards: { list: () => [{ port: 19133, protocol: 'UDP', label: 'Voice', owner: 'other-ext' }, { port: 19134, protocol: 'TCP', owner: null }] }, cfg: { extra: [{ port: 19135, protocol: 'UDP' }] } };
+  assert.strictEqual(await g.freePort('a'), 19134, 'list() wins, TCP does not count');
+  host.ctx.router = { cfg: { extra: [{ port: 19133, protocol: 'UDP' }] } };
+  assert.strictEqual(await g.freePort('a'), 19134, 'older router extension');
+});
+
 test('config patch: bedrock port and floodgate auth only', () => {
   const yml = 'bedrock:\n  address: 0.0.0.0\n  port: 19132\nremote:\n  port: 25565\n  auth-type: online\n';
   const out = patchConfigText(yml, { port: 19140, floodgate: true });

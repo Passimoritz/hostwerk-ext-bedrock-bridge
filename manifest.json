@@ -9,7 +9,7 @@
     "de": "Freunde auf Handy, Konsole und der Windows-Edition spielen auf deinen Java-Servern mit: Geyser und Floodgate per Klick, eigener UDP-Port, Freigabe im Router und automatische Updates, sobald niemand online ist.",
     "en": "Friends on phones, consoles and the Windows edition play on your Java servers: Geyser and Floodgate with one click, own UDP port, router forwarding and automatic updates as soon as nobody is online."
   },
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-bedrock-bridge",
   "license": "MIT",

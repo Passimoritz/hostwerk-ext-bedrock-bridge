@@ -1,3 +1,7 @@
+## 1.1.1
+
+- The free Bedrock port skips UDP forwardings of the router through its public list (`router.forwards`, Router & port forwarding 1.2) instead of reading its settings; older router versions as before. / Freier Bedrock-Port beachtet Router-Freigaben über deren öffentliche Liste (`router.forwards`), ältere Router-Erweiterung wie bisher.
+
 ## 1.1.0
 
 - Velocity with Floodgate: Floodgate and the proxy's key.pem on every backend, “send-floodgate-data” on – Bedrock players are no longer kicked (“Sync backends” after network changes). / Velocity mit Floodgate: Floodgate und key.pem des Proxys auf jedem Server im Netzwerk, „send-floodgate-data“ an – Bedrock-Spieler fliegen nicht mehr raus („Server im Netzwerk abgleichen“ nach Änderungen).

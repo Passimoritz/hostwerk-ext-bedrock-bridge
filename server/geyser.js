@@ -112,6 +112,13 @@ function udpFree(port) {
   });
 }
 
+/** Remembered router forwardings: public list of "Router & port forwarding" 1.2+, else its settings list (older versions). */
+function routerForwards(router) {
+  if (!router) return [];
+  if (router.forwards && typeof router.forwards.list === 'function') return router.forwards.list() || [];
+  return (router.cfg && Array.isArray(router.cfg.extra)) ? router.cfg.extra : [];
+}
+
 class Geyser {
   /** host: extension host · mc: Hostwerk's Minecraft manager · net: { downloadFile, fetchJson, jobProgress, runJob } · opts: { udpFree } */
   constructor(host, mc, net, opts = {}) {
@@ -144,7 +151,8 @@ class Geyser {
         if (p.proto === 'UDP' && !(own && own.geyser && p.port === own.geyser.port)) used.add(p.port);
       }
     } catch { /* no security service */ }
-    try { for (const x of (this.ctx.router && this.ctx.router.cfg && this.ctx.router.cfg.extra) || []) if (x.protocol === 'UDP') used.add(x.port); } catch { /* no router extension */ }
+    // Gemerkte Freigaben im Router (von Hand und anderer Pakete): router.forwards ab Router 1.2, vorher dessen Liste
+    try { for (const x of routerForwards(this.ctx.router)) if (x.protocol === 'UDP') used.add(x.port); } catch { /* no router extension */ }
     return used;
   }
 
