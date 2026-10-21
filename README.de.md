@@ -10,10 +10,14 @@ Freunde am Handy, an der Konsole und mit der Windows-Edition spielen auf deinen 
 
 ## Was sie kann
 
-- Geyser und Floodgate mit einem Klick
-- Eigener UDP-Port und Router-Freigabe
-- Automatische Updates, sobald niemand online ist
+- Geyser und Floodgate mit einem Klick – auch hinter Velocity (Floodgate und Schlüssel auf allen Servern im Netzwerk)
+- Eigener UDP-Port (prüft, was auf dem PC schon belegt ist) und Router-Freigabe
+- Adressen für zu Hause und für Freunde draußen, Anleitung für Handy, Windows und Konsolen
+- Serverlisten-Eintrag für Bedrock (MOTD, Servername), GeyserOptionalPack per Schalter
+- Automatische Updates, sobald niemand online ist; Ausschalten räumt alles auf
 - „Bedrock“ an jedem Minecraft-Server und eine eigene Seite
+
+Andere Erweiterungen erkennen Bedrock-Spieler über `prefix`/`bedrockPlayers` in `GET /api/mc/servers/<id>/bedrock` oder den Dienst `bedrock` (`isBedrock(server, name)`).
 
 ## Installieren
 

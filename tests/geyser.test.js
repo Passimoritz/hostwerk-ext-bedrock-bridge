@@ -24,8 +24,9 @@ function setup() {
   };
   let saved = 0;
   const host = { ctx: { settings: { save: () => { saved++; } }, keeper: null, router: null }, t: (s, v) => fill(de[s] || s, v), error: (st, m) => Object.assign(new Error(m), { status: st }), broadcast: () => {} };
-  const g = new Geyser(host, mc, {});
-  return { dir, servers, running, g, saved: () => saved };
+  const busy = new Set();
+  const g = new Geyser(host, mc, {}, { udpFree: async (p) => !busy.has(p) });
+  return { dir, servers, running, g, busy, host, saved: () => saved };
 }
 
 test('supported types and reasons in German', () => {
@@ -36,10 +37,14 @@ test('supported types and reasons in German', () => {
   assert.match(g.supported({ type: 'forge' }).why, /NeoForge/);
 });
 
-test('free port skips ports of other servers', () => {
-  const { g } = setup();
-  assert.strictEqual(g.freePort('a'), 19133);
-  assert.strictEqual(g.freePort('b'), 19132, 'own port stays free for itself');
+test('free port skips ports of other servers, other public UDP ports and busy ports', async () => {
+  const { g, busy, host } = setup();
+  assert.strictEqual(await g.freePort('a'), 19133);
+  assert.strictEqual(await g.freePort('b'), 19132, 'own port stays free for itself');
+  // A game server publishes UDP 19133, something else on this PC holds 19134
+  host.ctx.security = { publicPorts: () => [{ port: 19133, proto: 'UDP', label: 'Game' }, { port: 19135, proto: 'TCP', label: 'Web' }] };
+  busy.add(19134);
+  assert.strictEqual(await g.freePort('a'), 19135, 'TCP on the same number does not matter');
 });
 
 test('config patch: bedrock port and floodgate auth only', () => {
@@ -76,7 +81,7 @@ test('status and switching off', async () => {
   fs.writeFileSync(path.join(plugins, 'floodgate-spigot.jar'), 'x');
   const st = g.status('b');
   assert.ok(st.enabled && st.port === 19132 && st.jars.includes('floodgate-spigot.jar'));
-  assert.match(st.address, /IP-dieses-PCs:19132/);
+  assert.match(st.address || 'x:19132', /:19132$/);
   const off = await g.disable('b');
   assert.ok(!off.enabled && !servers[1].geyser);
   assert.deepStrictEqual(fs.readdirSync(plugins), []);

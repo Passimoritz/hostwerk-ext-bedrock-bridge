@@ -9,7 +9,7 @@
     "de": "Freunde auf Handy, Konsole und der Windows-Edition spielen auf deinen Java-Servern mit: Geyser und Floodgate per Klick, eigener UDP-Port, Freigabe im Router und automatische Updates, sobald niemand online ist.",
     "en": "Friends on phones, consoles and the Windows edition play on your Java servers: Geyser and Floodgate with one click, own UDP port, router forwarding and automatic updates as soon as nobody is online."
   },
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-bedrock-bridge",
   "license": "MIT",
@@ -30,12 +30,37 @@
       "de": "Handy- und Konsolen-Spieler auf Java-Servern.",
       "en": "Phone and console players on Java servers."
     },
-    "icon": "smartphone"
+    "icon": "smartphone",
+    "nav": {
+      "group": "server",
+      "after": "mc"
+    }
   },
   "backend": "server/index.js",
   "ui": "ui/index.js",
   "screenshots": [
     "docs/screenshot.png",
     "docs/screenshot.de.png"
+  ],
+  "allowExtensions": {
+    "*": [
+      "tabs"
+    ]
+  },
+  "synergies": [
+    {
+      "with": "router",
+      "title": {
+        "de": "UDP-Port für Bedrock-Spieler von selbst im Router freigeben",
+        "en": "Forward the UDP port for Bedrock players in the router by itself"
+      }
+    },
+    {
+      "with": "motd-studio",
+      "title": {
+        "de": "Java-MOTD gestalten – Bedrock übernimmt sie auf Wunsch",
+        "en": "Design the Java MOTD – Bedrock can use it as well"
+      }
+    }
   ]
 }

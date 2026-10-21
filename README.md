@@ -10,10 +10,14 @@ Friends on phones, consoles and the Windows edition play on your Java servers: G
 
 ## What it does
 
-- Geyser and Floodgate with one click
-- Own UDP port and router forwarding
-- Automatic updates as soon as nobody is online
-- “Bedrock” on every Minecraft server and an own page
+- Geyser and Floodgate with one click – also behind Velocity (Floodgate and the key on every server of the network)
+- Own UDP port (checks what is already taken on this PC) and router forwarding
+- Addresses for home and for friends outside, guide for phones, Windows and consoles
+- Bedrock server list entry (MOTD, server name), GeyserOptionalPack with one switch
+- Automatic updates as soon as nobody is online; switching off cleans everything up
+- “Bedrock” on every Minecraft server and its own page
+
+Other extensions recognise Bedrock players through `prefix`/`bedrockPlayers` in `GET /api/mc/servers/<id>/bedrock` or the service `bedrock` (`isBedrock(server, name)`).
 
 ## Install
 
