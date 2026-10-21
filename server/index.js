@@ -37,6 +37,8 @@ function activate(host) {
   }
   const dl = host.core('download');
   geyser = new Geyser(host, mc, { downloadFile: dl.downloadFile, fetchJson: dl.fetchJson, jobProgress: dl.jobProgress, runJob: host.core('jobs').runJob });
+  // Successor installed while this one runs: from then on its timers do nothing (it owns minecraft.geyser)
+  for (const k of ['checkAll', 'applyWhenEmpty']) { const fn = geyser[k].bind(geyser); geyser[k] = async (...a) => (replaced(host) ? null : fn(...a)); }
   mc.geyser = geyser;
   host.provide('bedrock', {
     status: (id) => geyser.status(id),
