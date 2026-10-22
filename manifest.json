@@ -9,7 +9,7 @@
     "de": "Abgelöst durch „Minecraft-Servernetzwerk“: Dort läuft Geyser richtig – einmal am Proxy statt auf jedem Server –, dazu Bedrock Dedicated Server, Versions-Brücken und Netzwerke. Diese Fassung zieht deine Einstellungen, Ports und Floodgate-Schlüssel ohne Verlust um.",
     "en": "Replaced by “Minecraft server network”: Geyser runs the right way there – once on the proxy instead of on every server –, plus Bedrock Dedicated Servers, version bridges and networks. This version moves your settings, ports and Floodgate keys over without loss."
   },
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-bedrock-bridge",
   "license": "MIT",

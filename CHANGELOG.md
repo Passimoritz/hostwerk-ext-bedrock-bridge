@@ -1,3 +1,7 @@
+## 1.2.2
+
+- The page head keeps its one-line description when the bridge was replaced by the Minecraft network. / Der Seitenkopf behält seine Beschreibung, wenn die Brücke durch das Minecraft-Netzwerk ersetzt wurde.
+
 ## 1.2.1
 
 - No own sidebar entry any more (`nav: false`) – the move to “Minecraft server network” stays reachable via Extensions → Open and the hint on the Minecraft page. / Kein eigener Eintrag mehr in der Seitenleiste (`nav: false`) – der Umzug zu „Minecraft-Servernetzwerk“ bleibt über Erweiterungen → Öffnen und den Hinweis auf der Minecraft-Seite erreichbar.

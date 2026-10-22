@@ -232,7 +232,7 @@ function Replaced({ done }) {
 function BedrockPage() {
   const r = useApi('/bedrock', [], { live: false, poll: true });
   const d = { ...r, data: r.data ? (Array.isArray(r.data) ? r.data : r.data.servers) : null };
-  if (r.data && r.data.replacedBy) return <div className="page fade-in"><div className="page-head"><div><h1><Smartphone /> Bedrock bridge</h1></div></div><Replaced done /></div>;
+  if (r.data && r.data.replacedBy) return <div className="page fade-in"><div className="page-head"><div><h1><Smartphone /> Bedrock bridge</h1><p>Friends on phones, consoles and the Windows edition play on your Java servers – Geyser and Floodgate with one click.</p></div></div><Replaced done /></div>;
   if (!d.data && d.error) return <div className="page"><Empty icon={CloudOff} title="Could not load the Bedrock bridge" text={d.error} action={<Btn icon={RotateCw} onClick={() => d.reload()}>Try again</Btn>} /></div>;
   return (
     <div className="page fade-in">
