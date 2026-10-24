@@ -1,3 +1,7 @@
+## 1.3.0
+
+- Needs the extension “Minecraft servers” (Hostwerk 3.1 moved Minecraft out of the core) – Hostwerk installs it along with this one. / Braucht die Erweiterung „Minecraft-Server“ (Hostwerk 3.1 hat Minecraft aus dem Kern ausgelagert) – Hostwerk installiert sie mit.
+
 ## 1.2.2
 
 - The page head keeps its one-line description when the bridge was replaced by the Minecraft network. / Der Seitenkopf behält seine Beschreibung, wenn die Brücke durch das Minecraft-Netzwerk ersetzt wurde.
