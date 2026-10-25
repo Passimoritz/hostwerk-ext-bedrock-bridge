@@ -1,3 +1,7 @@
+## 1.4.0
+
+- Loading the Geyser settings shows Hostwerk’s spinner next to the text (SDK 3.6). / Beim Laden der Geyser-Einstellungen dreht sich Hostwerks Kreisel neben dem Text (SDK 3.6).
+
 ## 1.3.1
 
 - New animated icon and banner in the common Hostwerk style (isometric block). / Neues animiertes Symbol und Banner im gemeinsamen Hostwerk-Stil (isometrischer Block).

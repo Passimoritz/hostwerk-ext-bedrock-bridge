@@ -101,7 +101,7 @@ function MotdEditor({ s, onSaved }) {
   const [busy, setBusy] = useState(false);
   useEffect(() => { if (m.data) setF(m.data); }, [m.data]);
   if (m.error) return <div className="tiny muted row-tight">{m.error}<button type="button" className="btn ghost xs" onClick={() => m.reload()}>Try again</button></div>;
-  if (!f) return <div className="tiny muted">Loading …</div>;
+  if (!f) return <div className="tiny muted row-tight"><span className="hw-spinner hw-sm" aria-hidden="true" /> Loading …</div>;
   if (!f.available) return <div className="tiny muted">Start the server once – then Geyser has its settings and you can change the entry here.</div>;
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
   return (
