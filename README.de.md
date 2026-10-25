@@ -6,7 +6,7 @@
 
 Freunde am Handy, an der Konsole und mit der Windows-Edition spielen auf deinen Java-Servern: Geyser und Floodgate mit einem Klick.
 
-[English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (SDK 2.7, native Erweiterung)
+[English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (native Erweiterung, ab Hostwerk 3.1)
 
 ![Bildschirmfoto](docs/screenshot.de.png)
 

@@ -6,7 +6,7 @@
 
 Friends on phones, consoles and the Windows edition play on your Java servers: Geyser and Floodgate with one click.
 
-[Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (SDK 2.7, native extension)
+[Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (native extension, Hostwerk 3.1 or newer)
 
 ![Screenshot](docs/screenshot.png)
 
